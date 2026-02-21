@@ -31,6 +31,10 @@ Each exception type comes with a fluent **builder** that handles message generat
 
 - [Translation](.docs/translation.md) — `ExceptionTranslator`, handler pattern, `PDOCatchAllHandler`, and SQLSTATE routing
 
+### Logging
+
+- [Logging](.docs/logging.md) — `JsonStructuredLogger`, `EnvironmentEnricher`, `ContextEnricher`, and combining with translation
+
 ### Exceptions & Builders
 
 | Exception | Severity | Retryable | Error Code | Docs |
