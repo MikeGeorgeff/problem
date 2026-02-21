@@ -107,7 +107,7 @@ class ExceptionBuilder
         return $this;
     }
 
-    public function correlationId(string $id): static
+    public function correlationId(?string $id): static
     {
         $this->correlationId = $id;
 

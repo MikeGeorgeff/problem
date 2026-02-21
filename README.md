@@ -1,6 +1,6 @@
 # georgeff/problem
 
-Structured domain exceptions for PHP with a fluent builder API, severity levels, context, correlation tracking, and serialization.
+Structured domain exceptions for PHP with a fluent builder API, exception translation, severity levels, context, correlation tracking, and serialization.
 
 ## Installation
 
@@ -15,10 +15,10 @@ This package provides a set of domain-scoped exception classes that extend PHP's
 - **Severity** — one of `critical`, `error`, `warning`, `info`, `debug`
 - **Context** — arbitrary key-value data describing the failure scenario
 - **Retryability** — signals whether the triggering operation can be retried
-- **Correlation ID** — request-scoped trace identifier, auto-generated if not provided
+- **Correlation ID** — request-scoped trace identifier, `null` when not provided
 - **Structured data** — a fully serializable snapshot for loggers and reporters
 
-Each exception type comes with a fluent **builder** that handles message generation, code assignment, and context population for common failure scenarios.
+Each exception type comes with a fluent **builder** that handles message generation, code assignment, and context population for common failure scenarios. A **translator** converts arbitrary PHP exceptions into typed domain exceptions via a priority-ordered handler pipeline.
 
 ## Documentation
 
@@ -26,6 +26,10 @@ Each exception type comes with a fluent **builder** that handles message generat
 
 - [DomainException](.docs/domain-exception.md) — abstract base class for all domain exceptions
 - [ExceptionBuilder](.docs/exception-builder.md) — generic fluent builder; base for all domain-specific builders
+
+### Translation
+
+- [Translation](.docs/translation.md) — `ExceptionTranslator`, handler pattern, `PDOCatchAllHandler`, and SQLSTATE routing
 
 ### Exceptions & Builders
 

@@ -84,11 +84,9 @@ class UnknownExceptionTest extends TestCase
         $this->assertSame($original->getLine(), $exception->context['original_line']);
     }
 
-    public function test_auto_generates_correlation_id_when_not_provided(): void
+    public function test_correlation_id_is_null_when_not_provided(): void
     {
-        $exception = new UnknownException(new RuntimeException('Error'));
-
-        $this->assertMatchesRegularExpression('/^[0-9a-f]{32}$/', $exception->correlationId);
+        $this->assertNull((new UnknownException(new RuntimeException('Error')))->correlationId);
     }
 
     public function test_accepts_custom_correlation_id(): void

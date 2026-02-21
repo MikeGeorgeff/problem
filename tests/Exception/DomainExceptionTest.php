@@ -36,19 +36,9 @@ class DomainExceptionTest extends TestCase
         $this->assertSame('Something went wrong', $exception->getMessage());
     }
 
-    public function test_auto_generates_correlation_id(): void
+    public function test_correlation_id_is_null_when_not_provided(): void
     {
-        $exception = $this->make();
-
-        $this->assertMatchesRegularExpression('/^[0-9a-f]{32}$/', $exception->correlationId);
-    }
-
-    public function test_generated_correlation_ids_are_unique(): void
-    {
-        $a = $this->make();
-        $b = $this->make();
-
-        $this->assertNotSame($a->correlationId, $b->correlationId);
+        $this->assertNull($this->make()->correlationId);
     }
 
     public function test_accepts_custom_correlation_id(): void

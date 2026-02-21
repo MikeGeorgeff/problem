@@ -11,7 +11,7 @@ abstract class DomainException extends \Exception
 {
     private const array SEVERITY_LEVELS = ['critical', 'error', 'warning', 'info', 'debug'];
 
-    public protected(set) string $correlationId;
+    public protected(set) ?string $correlationId;
 
     private string $_severity;
 
@@ -84,7 +84,7 @@ abstract class DomainException extends \Exception
     ) {
         parent::__construct($message, $code, $previous);
 
-        $this->correlationId = $correlationId ?? bin2hex(random_bytes(16));
+        $this->correlationId = $correlationId;
         $this->severity      = $severity;
         $this->context       = $context;
         $this->retryable     = $retryable;
