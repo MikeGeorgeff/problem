@@ -156,7 +156,7 @@ final class JsonStructuredLogger implements StructuredLogger
             'context'   => $enrichedContext,
         ];
 
-        $json = json_encode($logEntry, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        $json = json_encode($logEntry, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PARTIAL_OUTPUT_ON_ERROR);
 
         if (false === $json) {
             throw new RuntimeException('Failed to json_encode log entry ' . json_last_error_msg());
