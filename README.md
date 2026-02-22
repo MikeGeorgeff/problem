@@ -18,7 +18,7 @@ This package provides a set of domain-scoped exception classes that extend PHP's
 - **Correlation ID** — request-scoped trace identifier, `null` when not provided
 - **Structured data** — a fully serializable snapshot for loggers and reporters
 
-Each exception type comes with a fluent **builder** that handles message generation, code assignment, and context population for common failure scenarios. A **translator** converts arbitrary PHP exceptions into typed domain exceptions via a priority-ordered handler pipeline.
+Each exception type comes with a fluent **builder** that handles message generation, code assignment, and context population for common failure scenarios. A **translator** converts arbitrary PHP exceptions into typed domain exceptions via a priority-ordered handler pipeline. A **reporter** composes translation and structured logging into a single drop-in component for application exception handlers.
 
 ## Documentation
 
@@ -34,6 +34,10 @@ Each exception type comes with a fluent **builder** that handles message generat
 ### Logging
 
 - [Logging](.docs/logging.md) — `JsonStructuredLogger`, `EnvironmentEnricher`, `ContextEnricher`, and combining with translation
+
+### Reporting
+
+- [Reporting](.docs/reporting.md) — `ExceptionReporter`, correlation ID threading, application handler integration, and the decorator pattern
 
 ### Exceptions & Builders
 
